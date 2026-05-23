@@ -451,7 +451,7 @@ export default function GuestPage() {
         </aside>
 
         {/* ── MAIN ────────────────────────────────────────────── */}
-        <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-10 py-6 space-y-5">
+        <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 space-y-5">
 
           {/* Welcome card */}
           <div className="bg-white rounded-2xl border border-[var(--border)] p-4 shadow-[0_1px_6px_rgba(0,0,0,0.05)]">
@@ -488,31 +488,33 @@ export default function GuestPage() {
                 <Sparkles className="w-3.5 h-3.5" style={{ color: 'var(--primary)' }} />
                 You&apos;re co-creating
               </h2>
-              <div className="space-y-2">
-                {myClaimedTasks.map(task => {
+              <div className="bg-white rounded-2xl border border-[var(--border)] overflow-hidden">
+                {myClaimedTasks.map((task, i) => {
                   const cfg = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG.other
                   const CatIcon = cfg.Icon
                   return (
-                    <div key={task.id} className="bg-white rounded-2xl border border-[var(--border)] p-4 shadow-[0_1px_6px_rgba(0,0,0,0.05)] overflow-hidden">
-                      <div className="flex items-start gap-3">
-                        <div className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0" style={{ background: cfg.bg }}>
-                          <CatIcon className="w-7 h-7" style={{ color: cfg.color }} />
+                    <div key={task.id} className={i > 0 ? 'border-t border-[var(--border)]/50' : ''}>
+                      <div className="p-4 flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: cfg.bg }}>
+                          <CatIcon className="w-5 h-5" style={{ color: cfg.color }} />
                         </div>
                         <div className="flex-1 min-w-0">
                           <p className="font-semibold text-sm">{task.title}</p>
-                          {task.description && <p className="text-xs text-[var(--muted-foreground)] mt-0.5 leading-relaxed">{task.description}</p>}
-                          <div className="flex items-center gap-3 mt-2 flex-wrap">
-                            <span className="text-xs bg-green-50 text-green-700 border border-green-200 rounded-full px-2.5 py-0.5 font-medium">co-creating</span>
-                            <button onClick={() => openComments(task.id)} className="text-xs font-medium hover:underline" style={{ color: 'var(--primary)' }}>
-                              View details →
-                            </button>
-                            <button onClick={() => unclaimTask(task)} className="text-xs text-[var(--muted-foreground)] hover:text-red-500 transition-colors ml-auto">
-                              Pass this on
-                            </button>
-                          </div>
+                          {task.description && <p className="text-xs text-[var(--muted-foreground)] mt-0.5 leading-relaxed line-clamp-1">{task.description}</p>}
+                        </div>
+                        <div className="flex items-center gap-3 shrink-0">
+                          <span className="text-xs bg-green-50 text-green-700 border border-green-200 rounded-full px-2.5 py-0.5 font-medium">co-creating</span>
+                          <button onClick={() => openComments(task.id)} className="text-xs font-medium hover:underline" style={{ color: 'var(--primary)' }}>
+                            View details →
+                          </button>
+                          <button onClick={() => unclaimTask(task)} className="text-xs text-[var(--muted-foreground)] hover:text-red-500 transition-colors">
+                            Pass this on
+                          </button>
                         </div>
                       </div>
-                      {openCommentTaskId === task.id && renderCommentThread(task.id)}
+                      {openCommentTaskId === task.id && (
+                        <div className="px-4 pb-4 border-t border-[var(--border)]/40">{renderCommentThread(task.id)}</div>
+                      )}
                     </div>
                   )
                 })}
@@ -530,24 +532,27 @@ export default function GuestPage() {
                 <p className="text-sm text-center text-[var(--muted-foreground)] py-8">Every part of the day is beautifully in good hands.</p>
               ) : (
                 <>
-                  <div className="space-y-2.5">
-                    {visibleTasks.map(task => {
+                  <div className="bg-white rounded-2xl border border-[var(--border)] overflow-hidden">
+                    {visibleTasks.map((task, i) => {
                       const cfg = CATEGORY_CONFIG[task.category] || CATEGORY_CONFIG.other
                       const CatIcon = cfg.Icon
                       return (
-                        <div key={task.id} className="bg-white rounded-2xl border border-[var(--border)] overflow-hidden shadow-[0_1px_6px_rgba(0,0,0,0.05)]">
-                          <div className="p-4 flex items-start gap-3">
-                            <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ background: cfg.bg }}>
-                              <CatIcon className="w-6 h-6" style={{ color: cfg.color }} />
+                        <div key={task.id} className={i > 0 ? 'border-t border-[var(--border)]/50' : ''}>
+                          <div className="px-4 py-3.5 flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style={{ background: cfg.bg }}>
+                              <CatIcon className="w-4.5 h-4.5" style={{ color: cfg.color, width: 18, height: 18 }} />
                             </div>
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-sm mb-0.5">{task.title}</p>
-                              <span className="text-xs font-medium" style={{ color: cfg.color }}>{CATEGORY_LABELS[task.category]}</span>
-                              {task.description && <p className="text-xs text-[var(--muted-foreground)] mt-1 leading-relaxed">{task.description}</p>}
+                              <p className="font-semibold text-sm">{task.title}</p>
+                              <div className="flex items-center gap-1.5 mt-0.5">
+                                <span className="text-xs font-medium" style={{ color: cfg.color }}>{CATEGORY_LABELS[task.category]}</span>
+                              </div>
+                              {task.description && <p className="text-xs text-[var(--muted-foreground)] mt-0.5 leading-relaxed">{task.description}</p>}
                             </div>
-                            <div className="flex items-center gap-1.5 shrink-0 mt-0.5">
+                            <div className="flex items-center gap-2 shrink-0">
                               <button onClick={() => openComments(task.id)}
-                                className="p-1.5 rounded-lg hover:bg-[var(--secondary)] text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors flex items-center gap-0.5">
+                                className="p-1.5 rounded-lg hover:bg-[var(--secondary)] transition-colors flex items-center gap-0.5"
+                                style={{ color: openCommentTaskId === task.id ? 'var(--primary)' : 'var(--muted-foreground)' }}>
                                 <MessageCircle className="w-4 h-4" />
                                 {(taskComments[task.id]?.length || 0) > 0 && <span className="text-[10px]">{taskComments[task.id].length}</span>}
                               </button>
@@ -560,7 +565,7 @@ export default function GuestPage() {
                             </div>
                           </div>
                           {openCommentTaskId === task.id && (
-                            <div className="px-4 pb-4">{renderCommentThread(task.id)}</div>
+                            <div className="px-4 pb-4 border-t border-[var(--border)]/40">{renderCommentThread(task.id)}</div>
                           )}
                         </div>
                       )
@@ -568,8 +573,8 @@ export default function GuestPage() {
                   </div>
                   {openTasks.length > 3 && (
                     <button onClick={() => setShowAllTasks(v => !v)}
-                      className="mt-3 w-full flex items-center justify-center gap-1.5 py-2.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
-                      {showAllTasks ? 'Show fewer' : `Show more ways to co-create`}
+                      className="mt-2 w-full flex items-center justify-center gap-1.5 py-2.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
+                      {showAllTasks ? 'Show fewer' : `Show ${openTasks.length - 3} more`}
                       <ChevronDown className={`w-4 h-4 transition-transform ${showAllTasks ? 'rotate-180' : ''}`} />
                     </button>
                   )}
