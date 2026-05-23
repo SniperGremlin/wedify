@@ -705,14 +705,6 @@ export default function GuestPage() {
               </div>
             </div>
 
-            {/* Card 2: handwritten-style quote */}
-            <div className="p-4 relative">
-              <p className="text-lg leading-snug relative z-10"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: 'var(--primary)', fontStyle: 'italic', fontWeight: 400 }}>
-                The best weddings aren&apos;t perfect. They&apos;re personal.
-              </p>
-              <Heart className="w-3 h-3 mt-2 relative z-10" style={{ color: 'var(--primary)', opacity: 0.65 }} />
-            </div>
           </div>
 
           {/* Flowers fill — grows to consume remaining space */}
