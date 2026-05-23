@@ -692,8 +692,6 @@ export default function GuestPage() {
           style={{ height: 'calc(100vh - 3.5rem)', backgroundColor: '#fdf8f3' }}>
 
           <div className="flex flex-col gap-4 p-5 flex-shrink-0">
-            <h3 className="font-semibold text-sm" style={{ color: '#2d1f14' }}>A little inspiration</h3>
-
             {/* Card 1: photo + quote */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
