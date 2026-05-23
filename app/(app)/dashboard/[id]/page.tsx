@@ -194,7 +194,7 @@ export default function DashboardPage() {
 
   async function updateMemberRsvp(memberId: string, rsvp: string) {
     await supabase.from('wedding_members').update({ rsvp }).eq('id', memberId)
-    setMembers(m => m.map(mem => mem.id === memberId ? { ...mem, rsvp } : mem))
+    setMembers(m => m.map(mem => mem.id === memberId ? { ...mem, rsvp: rsvp as WeddingMember['rsvp'] } : mem))
     setEditingRsvpId(null)
   }
 
