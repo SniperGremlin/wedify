@@ -688,33 +688,39 @@ export default function GuestPage() {
         </main>
 
         {/* ── RIGHT SIDEBAR ────────────────────────────────────── */}
-        <aside className="hidden xl:flex w-72 shrink-0 sticky top-14 flex-col gap-4 p-5 border-l border-[var(--border)] overflow-y-auto"
+        <aside className="hidden xl:flex w-72 shrink-0 sticky top-14 flex-col border-l border-[var(--border)] overflow-hidden"
           style={{ height: 'calc(100vh - 3.5rem)', backgroundColor: '#fdf8f3' }}>
 
-          <h3 className="font-semibold text-sm" style={{ color: '#2d1f14' }}>A little inspiration</h3>
+          <div className="flex flex-col gap-4 p-5 flex-shrink-0">
+            <h3 className="font-semibold text-sm" style={{ color: '#2d1f14' }}>A little inspiration</h3>
 
-          {/* Card 1: photo + quote */}
-          <div className="bg-white rounded-2xl overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/table.png" alt="" className="w-full h-40 object-cover" />
-            <div className="p-4 text-center">
-              <p className="text-sm" style={{ fontFamily: 'Georgia, serif', color: '#2d1f14' }}>&ldquo;Many hands make</p>
-              <p className="text-sm italic font-bold" style={{ fontFamily: 'Georgia, serif', color: 'var(--primary)' }}>beautiful memories.&rdquo;</p>
-              <Heart className="w-3 h-3 mx-auto mt-2" style={{ color: 'var(--primary)' }} />
+            {/* Card 1: photo + quote */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/assets/table.png" alt="" className="w-full h-36 object-cover" />
+              <div className="p-3.5 text-center">
+                <p className="text-sm" style={{ fontFamily: 'Georgia, serif', color: '#2d1f14' }}>&ldquo;Many hands make</p>
+                <p className="text-sm italic font-bold" style={{ fontFamily: 'Georgia, serif', color: 'var(--primary)' }}>beautiful memories.&rdquo;</p>
+                <Heart className="w-3 h-3 mx-auto mt-2" style={{ color: 'var(--primary)' }} />
+              </div>
+            </div>
+
+            {/* Card 2: handwritten-style quote */}
+            <div className="p-4 relative">
+              <p className="text-lg leading-snug relative z-10"
+                style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: 'var(--primary)', fontStyle: 'italic', fontWeight: 400 }}>
+                The best weddings aren&apos;t perfect. They&apos;re personal.
+              </p>
+              <Heart className="w-3 h-3 mt-2 relative z-10" style={{ color: 'var(--primary)', opacity: 0.65 }} />
             </div>
           </div>
 
-          {/* Card 2: handwritten-style quote */}
-          <div className="rounded-2xl p-5 relative overflow-hidden shadow-[0_1px_4px_rgba(0,0,0,0.06)]" style={{ background: '#fdf9f5', minHeight: '190px' }}>
-            <p className="text-xl leading-snug relative z-10"
-              style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: 'var(--primary)', fontStyle: 'italic', fontWeight: 400 }}>
-              The best weddings aren&apos;t perfect. They&apos;re personal.
-            </p>
-            <Heart className="w-3 h-3 mt-3 relative z-10" style={{ color: 'var(--primary)', opacity: 0.65 }} />
+          {/* Botanical fill — grows to consume remaining space */}
+          <div className="flex-1 relative overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/assets/botanical-design.png" alt="" aria-hidden
-              className="absolute -bottom-4 -right-4 w-32 pointer-events-none select-none"
-              style={{ opacity: 0.35, mixBlendMode: 'multiply' }}
+              className="absolute inset-0 w-full h-full object-contain object-bottom pointer-events-none select-none"
+              style={{ opacity: 0.55, mixBlendMode: 'multiply', transform: 'scale(1.08) translateY(6%)' }}
             />
           </div>
 
