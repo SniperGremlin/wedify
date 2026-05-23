@@ -451,7 +451,7 @@ export default function GuestPage() {
         </aside>
 
         {/* ── MAIN ────────────────────────────────────────────── */}
-        <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 space-y-6 max-w-3xl">
+        <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-10 py-6 space-y-5">
 
           {/* Welcome card */}
           <div className="bg-white rounded-2xl border border-[var(--border)] p-4 shadow-[0_1px_6px_rgba(0,0,0,0.05)]">
@@ -525,7 +525,7 @@ export default function GuestPage() {
             <h2 className="font-semibold text-base mb-0.5">Ways to co-create</h2>
             <p className="text-xs text-[var(--muted-foreground)] mb-3">Little ways you can help shape the day — pick one and make it yours.</p>
             {botanicalDivider}
-            <div className="mt-4">
+            <div className="mt-3">
               {openTasks.length === 0 ? (
                 <p className="text-sm text-center text-[var(--muted-foreground)] py-8">Every part of the day is beautifully in good hands.</p>
               ) : (
@@ -578,11 +578,9 @@ export default function GuestPage() {
             </div>
           </div>
 
-          {botanicalDivider}
-
           {/* Offer section */}
-          <div>
-            <div className="flex items-start justify-between gap-3 mb-1">
+          <div className="pt-1 border-t border-[var(--border)]/50">
+            <div className="flex items-start justify-between gap-3 mb-1 pt-4">
               <div>
                 <h2 className="font-semibold text-base">Offer something of yours</h2>
                 <p className="text-xs text-[var(--muted-foreground)] mt-0.5">Got a skill, service or item that could help? Share it with the group.</p>
