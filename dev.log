@@ -1,0 +1,93 @@
+
+> wedify@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.116:3000
+- Environments: .env.local
+✓ Ready in 442ms
+
+ GET / 200 in 400ms (next.js: 193ms, application-code: 207ms)
+ GET /login 200 in 71ms (next.js: 34ms, application-code: 37ms)
+✓ Compiled in 44ms
+ GET /login 200 in 88ms (next.js: 54ms, application-code: 34ms)
+✓ Compiled in 32ms
+ GET /login 200 in 61ms (next.js: 39ms, application-code: 21ms)
+ GET /login 200 in 144ms (next.js: 3ms, application-code: 141ms)
+✓ Compiled in 29ms
+ GET /login 200 in 73ms (next.js: 43ms, application-code: 30ms)
+✓ Compiled in 44ms
+ GET /login 200 in 68ms (next.js: 43ms, application-code: 25ms)
+✓ Compiled in 26ms
+ GET /login 200 in 57ms (next.js: 36ms, application-code: 21ms)
+✓ Compiled in 45ms
+ GET /login 200 in 61ms (next.js: 36ms, application-code: 25ms)
+ GET /login 200 in 161ms (next.js: 3ms, application-code: 158ms)
+ GET /login 200 in 42ms (next.js: 3ms, application-code: 39ms)
+ GET /wedding/7fdee9a5 200 in 518ms (next.js: 454ms, application-code: 64ms)
+✓ Compiled in 38ms
+ GET /login 200 in 97ms (next.js: 45ms, application-code: 52ms)
+ GET /wedding/7fdee9a5 200 in 36ms (next.js: 14ms, application-code: 22ms)
+✓ Compiled in 24ms
+ GET /login 200 in 99ms (next.js: 42ms, application-code: 56ms)
+ GET /wedding/7fdee9a5 200 in 31ms (next.js: 11ms, application-code: 20ms)
+ GET /login 200 in 138ms (next.js: 3ms, application-code: 135ms)
+ GET /login 200 in 43ms (next.js: 3ms, application-code: 40ms)
+ GET / 200 in 50ms (next.js: 17ms, application-code: 33ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 445ms (next.js: 415ms, application-code: 30ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 38ms (next.js: 11ms, application-code: 28ms)
+✓ Compiled in 31ms
+ GET /wedding/7fdee9a5 200 in 211ms (next.js: 70ms, application-code: 141ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 110ms (next.js: 79ms, application-code: 31ms)
+✓ Compiled in 24ms
+ GET /wedding/7fdee9a5 200 in 198ms (next.js: 69ms, application-code: 129ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 198ms (next.js: 168ms, application-code: 29ms)
+✓ Compiled in 23ms
+ GET /wedding/7fdee9a5 200 in 188ms (next.js: 61ms, application-code: 127ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 188ms (next.js: 158ms, application-code: 31ms)
+✓ Compiled in 31ms
+ GET /wedding/7fdee9a5 200 in 187ms (next.js: 61ms, application-code: 126ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 187ms (next.js: 158ms, application-code: 29ms)
+✓ Compiled in 30ms
+ GET /wedding/7fdee9a5 200 in 184ms (next.js: 61ms, application-code: 123ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 184ms (next.js: 156ms, application-code: 28ms)
+✓ Compiled in 28ms
+ GET /wedding/7fdee9a5 200 in 178ms (next.js: 58ms, application-code: 120ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 178ms (next.js: 147ms, application-code: 31ms)
+✓ Compiled in 24ms
+ GET /wedding/7fdee9a5 200 in 192ms (next.js: 70ms, application-code: 122ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 192ms (next.js: 162ms, application-code: 30ms)
+✓ Compiled in 25ms
+ GET /wedding/7fdee9a5 200 in 184ms (next.js: 65ms, application-code: 118ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 184ms (next.js: 158ms, application-code: 26ms)
+✓ Compiled in 25ms
+ GET /wedding/7fdee9a5 200 in 176ms (next.js: 57ms, application-code: 119ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 176ms (next.js: 149ms, application-code: 28ms)
+✓ Compiled in 27ms
+ GET /wedding/7fdee9a5 200 in 187ms (next.js: 60ms, application-code: 127ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 187ms (next.js: 159ms, application-code: 28ms)
+✓ Compiled in 30ms
+ GET /wedding/7fdee9a5 200 in 233ms (next.js: 75ms, application-code: 158ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 233ms (next.js: 197ms, application-code: 36ms)
+✓ Compiled in 34ms
+ GET /wedding/7fdee9a5 200 in 258ms (next.js: 90ms, application-code: 168ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 258ms (next.js: 212ms, application-code: 47ms)
+✓ Compiled in 28ms
+ GET /wedding/7fdee9a5 200 in 219ms (next.js: 81ms, application-code: 139ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 220ms (next.js: 183ms, application-code: 36ms)
+✓ Compiled in 30ms
+ GET /wedding/7fdee9a5 200 in 249ms (next.js: 79ms, application-code: 170ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 249ms (next.js: 212ms, application-code: 38ms)
+✓ Compiled in 26ms
+ GET /wedding/7fdee9a5 200 in 210ms (next.js: 73ms, application-code: 137ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 211ms (next.js: 178ms, application-code: 32ms)
+✓ Compiled in 31ms
+ GET /wedding/7fdee9a5 200 in 204ms (next.js: 70ms, application-code: 134ms)
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 205ms (next.js: 175ms, application-code: 29ms)
+✓ Compiled in 39ms
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 173ms (next.js: 142ms, application-code: 31ms)
+ GET /wedding/7fdee9a5 200 in 175ms (next.js: 92ms, application-code: 83ms)
+✓ Compiled in 28ms
+ GET /dashboard/15ec3fd0-c076-40c2-b7a5-f7ffc4ebc02b 200 in 238ms (next.js: 64ms, application-code: 174ms)
+ GET /wedding/7fdee9a5 200 in 238ms (next.js: 198ms, application-code: 40ms)
