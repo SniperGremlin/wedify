@@ -715,12 +715,12 @@ export default function GuestPage() {
             </div>
           </div>
 
-          {/* Botanical fill — grows to consume remaining space */}
+          {/* Flowers fill — grows to consume remaining space */}
           <div className="flex-1 relative overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/assets/botanical-design.png" alt="" aria-hidden
-              className="absolute inset-0 w-full h-full object-contain object-bottom pointer-events-none select-none"
-              style={{ opacity: 0.55, mixBlendMode: 'multiply', transform: 'scale(1.08) translateY(6%)' }}
+            <img src="/assets/flowers.png" alt="" aria-hidden
+              className="absolute bottom-0 left-0 w-full pointer-events-none select-none"
+              style={{ mixBlendMode: 'multiply' }}
             />
           </div>
 
