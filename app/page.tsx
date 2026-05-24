@@ -102,7 +102,7 @@ export default function LandingPage() {
             </p>
 
             {/* CTA */}
-            <Link href="/login">
+            <Link href="/signup">
               <Button size="lg" className="text-white px-10 h-11 text-sm"
                 style={{
                   backgroundColor: 'var(--primary)',
