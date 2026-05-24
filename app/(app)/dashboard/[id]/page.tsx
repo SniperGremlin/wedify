@@ -68,6 +68,7 @@ export default function DashboardPage() {
 
   const [openCommentTaskId, setOpenCommentTaskId] = useState<string | null>(null)
   const [taskComments, setTaskComments] = useState<Record<string, TaskComment[]>>({})
+  const [commentCounts, setCommentCounts] = useState<Record<string, number>>({})
   const [commentText, setCommentText] = useState('')
   const [commentLoading, setCommentLoading] = useState(false)
 
@@ -79,22 +80,30 @@ export default function DashboardPage() {
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) { router.push('/login'); return }
 
-    const [weddingRes, tasksRes, offersRes, membersRes, notificationsRes] = await Promise.all([
+    const [weddingRes, tasksRes, offersRes, membersRes, notificationsRes, commentsRes] = await Promise.all([
       supabase.from('weddings').select('*').eq('id', id).single(),
       supabase.from('tasks').select('*').eq('wedding_id', id).order('created_at', { ascending: false }),
       supabase.from('offers').select('*').eq('wedding_id', id).order('created_at', { ascending: false }),
       supabase.from('wedding_members').select('*').eq('wedding_id', id).order('created_at'),
       supabase.from('notifications').select('*').eq('wedding_id', id).order('created_at', { ascending: false }).limit(30),
+      supabase.from('task_comments').select('task_id').eq('wedding_id', id),
     ])
 
     if (weddingRes.error || !weddingRes.data) { router.push('/create'); return }
     if (weddingRes.data.planner_id !== user.id) { router.push('/'); return }
+
+    // Build comment count map
+    const counts: Record<string, number> = {}
+    for (const row of (commentsRes.data || [])) {
+      counts[row.task_id] = (counts[row.task_id] || 0) + 1
+    }
 
     setWedding(weddingRes.data)
     setTasks(tasksRes.data || [])
     setOffers(offersRes.data || [])
     setMembers(membersRes.data || [])
     setNotifications(notificationsRes.data || [])
+    setCommentCounts(counts)
     setLoading(false)
   }, [id, router, supabase])
 
@@ -187,7 +196,10 @@ export default function DashboardPage() {
       task_id: taskId, wedding_id: id, user_id: user!.id,
       display_name: wedding!.couple_names, message: commentText.trim(),
     }).select().single()
-    if (data) setTaskComments(c => ({ ...c, [taskId]: [...(c[taskId] || []), data] }))
+    if (data) {
+      setTaskComments(c => ({ ...c, [taskId]: [...(c[taskId] || []), data] }))
+      setCommentCounts(c => ({ ...c, [taskId]: (c[taskId] || 0) + 1 }))
+    }
     setCommentText('')
     setCommentLoading(false)
   }
@@ -606,7 +618,9 @@ export default function DashboardPage() {
                       <button onClick={() => openComments(task.id)}
                         className="flex items-center gap-1 p-1.5 rounded-lg hover:bg-[var(--secondary)] text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors">
                         <MessageCircle className="w-3.5 h-3.5" />
-                        {(taskComments[task.id]?.length || 0) > 0 && <span className="text-xs">{taskComments[task.id].length}</span>}
+                        {(taskComments[task.id]?.length ?? commentCounts[task.id] ?? 0) > 0 && (
+                          <span className="text-xs">{taskComments[task.id]?.length ?? commentCounts[task.id]}</span>
+                        )}
                       </button>
                       <span className="text-xs border rounded-full px-2.5 py-0.5 bg-amber-50 text-amber-700 border-amber-200 font-medium">Needed</span>
                       <button onClick={() => openEditTask(task)} className="p-1.5 rounded-lg hover:bg-[var(--secondary)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
